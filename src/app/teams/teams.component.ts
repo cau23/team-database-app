@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Team } from '../team';
+import { TEAMS } from '../mock-teams';
+
 @Component({
   selector: 'app-teams',
   templateUrl: './teams.component.html',
@@ -7,10 +9,13 @@ import { Team } from '../team';
 })
 export class TeamsComponent implements OnInit {
 
-	team: Team = {
-		id: 1,
-	 	name: 'Cardinals'
-	};
+	teams = TEAMS;
+
+	selectedTeam: Team;
+
+	onSelect(team: Team): void {
+		this.selectedTeam = team;
+	}
 
   constructor() { }
 
