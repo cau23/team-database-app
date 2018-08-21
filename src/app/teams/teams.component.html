@@ -1,15 +1,12 @@
 <h2>National League</h2>
+
 <ul class="teams">
 	<!-- (click) click event binding syntax -->
-	<li *ngFor="let team of teams" (click)="onSelect(team)">
+	<li *ngFor="let team of teams"
+		[class.selected]="team === selectedTeam"
+		(click)="onSelect(team)">
 		<span class="badge">{{team.id}}</span> {{team.name}}
 	</li>
 </ul>
-<!-- Team Object - display team name and show id and name in details layout -->
-<h2>{{team.name | uppercase}} Database</h2>
-<div><span>id: </span>{{team.id}}</div>
-<div>
-	<label>name:
-		<input [(ngModel)]="team.name" placeholder="name">
-	</label>
-</div>
+
+<app-team-data [team]="selectedTeam"></app-team-data>

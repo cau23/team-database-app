@@ -1,0 +1,12 @@
+<!-- ngIf puts the team detail in DOM when user picks a team -->
+<div *ngIf="team">
+
+	<!-- Team Object - display team name and show id and name in details layout -->
+	<h2>{{team.name | uppercase}} Database</h2>
+	<div><span>id: </span>{{team.id}}</div>
+	<div>
+		<label>name:
+			<input [(ngModel)]="team.name" placeholder="name">
+		</label>
+	</div>
+</div>
